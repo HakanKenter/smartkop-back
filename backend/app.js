@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 const cookieParser = require('cookie-parser');
@@ -8,6 +9,8 @@ const dotenv = require('dotenv');
 const path = require('path');
 
 const errorMiddleware = require('./middlewares/errors');
+
+app.use(cors());
 
 // Setting up config file
 // if(process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').dotenv.config({ path: 'backend/config/config.env' });
