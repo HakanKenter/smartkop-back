@@ -42,7 +42,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         Livraison prévue à l'adresse suivante : 
         <span style="color: blue">${shippingInfo.address + ', ' + shippingInfo.city + ' ' + shippingInfo.postalCode + ', ' + shippingInfo.country}</span><br><br>
 
-        Vous pouvez retourner sur le site en cliquant sur ici <a href="${process.env.FRONTEND_URL}">SmartKop<a/>.<br><br><br>
+        Vous pouvez retourner sur le site en cliquant sur ici <a href="${process.env.FRONTEND_URL_LIVE}">SmartKop<a/>.<br><br><br>
 
         À très bientôt !<br>
         L'équipe SmartKop

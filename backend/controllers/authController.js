@@ -40,7 +40,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
         Bienvenue chez SmartKop !<br><br>
 
         Cet email confirme votre inscription.<br>
-        Vous pouvez retourner sur le site en cliquant sur ici <a href="${process.env.FRONTEND_URL}">SmartKop<a/>.<br><br><br>
+        Vous pouvez retourner sur le site en cliquant sur ici <a href="${process.env.FRONTEND_URL_LIVE}">SmartKop<a/>.<br><br><br>
 
         À très bientôt !<br>
         L'équipe SmartKop
@@ -118,7 +118,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
 
     // Create reset password url
-    const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
+    const resetUrl = `${process.env.FRONTEND_URL_LIVE}/password/reset/${resetToken}`;
     // const resetUrl = `${req.protocol}://${req.get('host')}/password/reset/${resetToken}`;    
 
     const html = `
