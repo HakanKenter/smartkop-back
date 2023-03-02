@@ -14,8 +14,11 @@ const cloudinary = require('cloudinary');
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
     let result;
-    let public_id_default = "avatars/default/default_lxhh71";
-    let secure_url_default = "https://res.cloudinary.com/dzlkkma0b/image/upload/v1673905645/avatars/default/default_lxhh71.webp"
+    // let public_id_default = "avatars/default/default_lxhh71";
+    // let secure_url_default = "https://res.cloudinary.com/dzlkkma0b/image/upload/v1673905645/avatars/default/default_lxhh71.webp"
+
+    let public_id_default = "avatars/e5ef0zrs1r8xrz7qkq05";
+    let secure_url_default = "https://res.cloudinary.com/dzlkkma0b/image/upload/v1677776416/avatars/e5ef0zrs1r8xrz7qkq05.webp"
 
     if (req.body.avatar) {
         result = await cloudinary.v2.uploader.upload(req.body.avatar, {
@@ -56,11 +59,11 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
         }   
     })
 
-    await sendEmail({
-        email: email,
-        subject: 'Inscription SmartKop',
-        html
-    })
+    // await sendEmail({
+    //     email: email,
+    //     subject: 'Inscription SmartKop',
+    //     html
+    // })
 
     sendToken(user, 200, res);
 
@@ -379,7 +382,9 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
 
     // Remove avatar from cloudinary
     const image_id = user.avatar.public_id;
-    await cloudinary.v2.uploader.destroy(image_id);
+    if (image_id !== "https://res.cloudinary.com/dzlkkma0b/image/upload/v1677776416/avatars/e5ef0zrs1r8xrz7qkq05.webp") {
+        await cloudinary.v2.uploader.destroy(image_id);
+    }
 
     await user.remove();
 
