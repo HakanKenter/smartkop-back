@@ -12,8 +12,9 @@ const errorMiddleware = require('./middlewares/errors');
 
 // app.use(cors());
 app.use(cors({ 
-    origin: "https://smart-kop.com", 
+    origin: "smart-kop.com", 
     credentials: true,
+    optionSuccessStatus:200
 }));
 
 // Setting up config file
