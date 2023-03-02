@@ -12,7 +12,7 @@ const errorMiddleware = require('./middlewares/errors');
 
 // app.use(cors());
 app.use(cors({ 
-    origin: "https://smart-kop.com/", 
+    origin: "https://smart-kop.com", 
     credentials: true,
     optionSuccessStatus:200
 }));
