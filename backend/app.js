@@ -10,7 +10,12 @@ const path = require('path');
 
 const errorMiddleware = require('./middlewares/errors');
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({ 
+    origin: "http://localhost:3001", 
+    credentials: true,
+    optionSuccessStatus:200
+}));
 
 // Setting up config file
 // if(process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').dotenv.config({ path: 'backend/config/config.env' });
@@ -43,6 +48,7 @@ app.use('/api/v1', payment)
 app.use('/api/v1', order)
 
 // if(process.env.NODE_ENV === 'PRODUCTION') {
+//     // console.log((path.join(__dirname)))
 //     app.use(express.static(path.join(__dirname, '../frontend/build')))
 
 //     app.get('*', (req, res) => {
