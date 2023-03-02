@@ -59,11 +59,11 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
         }   
     })
 
-    // await sendEmail({
-    //     email: email,
-    //     subject: 'Inscription SmartKop',
-    //     html
-    // })
+    await sendEmail({
+        email: email,
+        subject: 'Inscription SmartKop',
+        html
+    })
 
     sendToken(user, 200, res);
 
