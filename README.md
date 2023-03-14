@@ -7,13 +7,6 @@
 
 Add your config variables values in the config.env file in backend/config folder like backend/.env.example file.
 
-### Install Dependencies (Frontend)
-
-```
-cd frontend
-npm i
-```
-
 ### Install Dependencies (Backend)
 
 ```
