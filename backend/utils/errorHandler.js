@@ -1,5 +1,5 @@
 /**
- * Error Handler Class
+ * Error Handler Class | Captures errors and manages them in a consistent manner
  */
 class ErrorHandler extends Error {
 
@@ -10,6 +10,7 @@ class ErrorHandler extends Error {
     super(message);
     this.statusCode = statusCode
 
+    // For understand origin of error
     Error.captureStackTrace(this, this.constructor)
   }
 

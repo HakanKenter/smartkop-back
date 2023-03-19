@@ -4,6 +4,7 @@ class APIFeatures {
         this.queryStr = queryStr;
     }
 
+    // For search mathed keyword in name of all products, insensitive to breakage
     search() {
         const keyword = this.queryStr.keyword ? {
             name: {
@@ -17,6 +18,7 @@ class APIFeatures {
         return this;
     }
 
+    // Filters all elements sent except the keyword, the limit and the page 
     filter() {
 
         const queryCopy = { ...this.queryStr };
@@ -36,6 +38,7 @@ class APIFeatures {
         return this;
     }
 
+    // represents the number of results to display per page
     pagination(resPerPage) {
         const currentPage = Number(this.queryStr.page) || 1;
         const skip = resPerPage * (currentPage - 1);
